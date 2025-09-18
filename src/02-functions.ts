@@ -40,8 +40,6 @@ function addColleague(colleagues: Colleague[], name: string, department: string,
         extension: newExtension,
         },
     };
-
-    // Add the new colleague to the array
     colleagues.push(newColleague);
 }
 
