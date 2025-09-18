@@ -1,4 +1,4 @@
-import { friends } from './01-basics'
+import { colleagues, friends } from './01-basics'
 import {Friend, Colleague } from './myTypes'
 
 function older(f: Friend) : string {
@@ -30,15 +30,20 @@ console.log(highestExtension(colleagues.current));
 // Setting the extension number to highest extension + 1
 // Will need to callback the highestExtension function here.
 function addColleague(colleagues: Colleague[], name: string, department: string, email: string): void {
+    const he = highestExtension(colleagues);
+    const newExtension = he ? he.contact.extension + 1 : 1;
     const newColleague: Colleague = {
         name,
         department,
         contact: {
         email,
-        extension: highestExtension() + 1,
+        extension: newExtension,
         },
     };
 
     // Add the new colleague to the array
     colleagues.push(newColleague);
 }
+
+addColleague(colleagues.current, "Sheild O Connell", "HR", "soc@here.com");
+console.log(colleagues.current.filter((c) => c.name === "Sheild O Connell"));
