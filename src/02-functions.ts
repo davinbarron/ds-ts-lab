@@ -64,9 +64,9 @@ console.log(sortColleagues(colleagues.current, (a, b) => a.name.length - b.name.
 function findFriends(
   friends: Friend[],
   sorter: (f: Friend) => boolean
-): Friend[] {
+): string[] {
   const sorted = friends.filter(sorter);
-  const result: Friend[] = sorted.map((fe) => ({ name: fe.name, phone: fe.phone, age: fe.age }));
+  const result: string[] = sorted.map((fe) => fe.name);
   return result 
 }
 
