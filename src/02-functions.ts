@@ -8,6 +8,8 @@ function older(f: Friend) : string {
 
 console.log(older(friends[0]))
 
+// Using a callback on the older function
+// For each friend in our array we will call the older function
 function allOlder(fs: Friend[]) : string[] {
     const friends = fs.map(f => older(f))
     return friends
@@ -15,3 +17,28 @@ function allOlder(fs: Friend[]) : string[] {
 
 console.log(allOlder(friends))
 
+// Find the colleague with the highest extension number.
+function highestExtension(cs: Colleague[]): Colleague {
+  const result = cs.sort(
+    (c1, c2) => c1.contact.extension - c2.contact.extension
+  );
+  return result[cs.length - 1];
+}
+console.log(highestExtension(colleagues.current));
+
+// Function to add a colleague to an array
+// Setting the extension number to highest extension + 1
+// Will need to callback the highestExtension function here.
+function addColleague(colleagues: Colleague[], name: string, department: string, email: string): void {
+    const newColleague: Colleague = {
+        name,
+        department,
+        contact: {
+        email,
+        extension: highestExtension() + 1,
+        },
+    };
+
+    // Add the new colleague to the array
+    colleagues.push(newColleague);
+}
