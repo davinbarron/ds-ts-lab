@@ -87,11 +87,12 @@ function addInterest(
   friend: Friend, 
   interest: string
 ): string[] {
-    if (friend.interests === undefined) {
-        friend.interests = []; // If it's undefined return an empty array
+  let fin = friend.interests;
+    if (fin === undefined) {
+        fin = []; // If it's undefined return an empty array
     }
-    friend.interests.push(interest);
-    return friend.interests;
+    fin.push(interest);
+    return fin;
 }
 
 console.log(addInterest(friends[0], 'Politics'))
