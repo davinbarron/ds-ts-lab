@@ -16,7 +16,15 @@ const friend2: Friend = {
   interests: ['Gaming', 'Music']
 };
 
-export const friends: Friend[] = [friend1, friend2];
+// Test for intersection function
+const friend3: Friend = {
+  name: "Ralph Graham",
+  phone: "085-12344",
+  age: 30,
+  interests: ['Swimming', 'Rugby']
+};
+
+export const friends: Friend[] = [friend1, friend2, friend3];
 
 //console.log(friends[1]);
 
